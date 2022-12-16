@@ -17,34 +17,97 @@ https://user-images.githubusercontent.com/118046088/207933241-d9192ebc-6f5f-40b8
 
 <img width="1440" alt="Chat Class" src="https://user-images.githubusercontent.com/118046088/208128048-6246d0fc-4436-43b2-8112-ffbd888d3ac7.png">
 
+
 Markup :  `code()`
 
-
-class Participation  {
+class Conversation: NSObject{
     
-    var conversationId: Int!
-    var messageableId: Int!
+    var directMessage: Bool!
+    var lastMessage: LastMessage!
     var createdAt: String!
-    var messageableType: String!
+    var participant: [Participant]!
     var id : Int!
+    var privateField : Bool!
     var updatedAt: String!
+    
     
     init(fromJson json: JSON!) {
         if json.isEmpty {
             return
         }
         
-        conversationId = json["conversationId"].intValue
-        createdAt = json["createdAt"].stringValue
+       
+        directMessage = json["direct_message"].boolValue
+        let lastMessageJson = json["last_message"]
+        if !lastMessageJson.isEmpty {
+            lastMessage = LastMessage(fromJson: lastMessageJson)
+        }
+        
+        createdAt = json["created_at"].stringValue
         id = json["id"].intValue
-        updatedAt = json["updatedAt"].stringValue
-        messageableType = json["messageable_type"].stringValue
-        messageableId = json["messageable_id"].intValue
+        
+        participant = [Participant]()
+        
+        let participantArray = json["participants"].arrayValue
+        for participationJson in participantArray {
+            let value = Participant(fromJson: participationJson)
+            participant.append(value)
+        }
+        
+        privateField = json["private_field"].boolValue
+        updatedAt = json["updated_at"].stringValue
+
         
     }
-   
+    
     
 }
+
+Markup : ```swift
+         ```
+
+
+Markup :  `code()`
+
+class Chat {
+
+    var conversationId: Int!
+    var conversation : Conversation!
+    var directMessage : Bool!
+    var id : Int!
+    var data : String!
+    var privateField : Bool!
+    var createdAt : String!
+    var messageableId : Int!
+    var messageableType : String!
+    var updatedAt: String!
+
+
+    init(fromJson json: JSON!) {
+        if json.isEmpty {
+            return
+        }
+        
+        let conversationJson = json["conversation"]
+        if !conversationJson.isEmpty {
+            conversation = Conversation(fromJson: conversationJson)
+        }
+        
+        conversationId = json["conversation_id"].intValue
+        createdAt = json["created_at"].stringValue
+        id = json["id"].intValue
+        updatedAt = json["updated_at"].stringValue
+        messageableId = json["messageable_id"].intValue
+        directMessage = json["direct_message"].boolValue
+        messageableType = json["messageable_type"].stringValue
+        data = json["data"].stringValue
+        privateField = json["private_field"].boolValue
+        messageableId = json["messageable_id"].intValue
+     
+        
+    }
+}
+
 
 Markup : ```swift
          ```
