@@ -9,10 +9,10 @@ https://user-images.githubusercontent.com/118046088/207933141-7f533fda-7560-475b
 
 https://user-images.githubusercontent.com/118046088/207933241-d9192ebc-6f5f-40b8-ba0e-88144c0cd8b5.mp4
 
-# Sample of a class - Chat Class 
+# Sample of a class - Conversation Class 
 
 <img width="1440" alt="Conversation Class" src="https://user-images.githubusercontent.com/118046088/208128039-238efcec-3fcc-4765-8292-f97b85ae9817.png">
 
-# Sample of a class - Conversation Class
+# Sample of a class - Chat Class
 
 <img width="1440" alt="Chat Class" src="https://user-images.githubusercontent.com/118046088/208128048-6246d0fc-4436-43b2-8112-ffbd888d3ac7.png">
