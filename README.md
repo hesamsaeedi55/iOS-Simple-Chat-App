@@ -16,3 +16,35 @@ https://user-images.githubusercontent.com/118046088/207933241-d9192ebc-6f5f-40b8
 # Sample of a class - Chat Class
 
 <img width="1440" alt="Chat Class" src="https://user-images.githubusercontent.com/118046088/208128048-6246d0fc-4436-43b2-8112-ffbd888d3ac7.png">
+
+Markup :  `code()`
+
+
+class Participation  {
+    
+    var conversationId: Int!
+    var messageableId: Int!
+    var createdAt: String!
+    var messageableType: String!
+    var id : Int!
+    var updatedAt: String!
+    
+    init(fromJson json: JSON!) {
+        if json.isEmpty {
+            return
+        }
+        
+        conversationId = json["conversationId"].intValue
+        createdAt = json["createdAt"].stringValue
+        id = json["id"].intValue
+        updatedAt = json["updatedAt"].stringValue
+        messageableType = json["messageable_type"].stringValue
+        messageableId = json["messageable_id"].intValue
+        
+    }
+   
+    
+}
+
+Markup : ```swift
+         ```
