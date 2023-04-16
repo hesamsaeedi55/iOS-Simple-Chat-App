@@ -35,6 +35,8 @@ class ChatVC: MessagesViewController {
     }
     
     func getMessages() {
+
+// checking the token of each user
         api = API(token: UserDefaults.standard.string(forKey: "token")!)
         api.getChatMesages(id: chatId) { json in
             for (_,message) in json["data"] {
