@@ -76,6 +76,8 @@ extension ChatVC : InputBarAccessoryViewDelegate {
         
         if (!text.isEmpty) {
             api.sendMessage(id: self.chatId, params: ["message" : "\(text)"]) { json in
+
+//add new message to Message Array by append 
                 self.messages.append(LastMessage(fromJson: json))
                 DispatchQueue.main.async {
                     self.messagesCollectionView.reloadData()
